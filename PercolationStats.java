@@ -1,3 +1,12 @@
+/************************************************************************
+ *  Compilation:  javac PercolationStats.java
+ *  Execution:  java WeightedQuickUnionUF int N  int T
+ *  Dependencies: StdIn.java StdOut.java WeightedQuickUnionUF Percolation
+ *
+ * 
+ *
+ ************************************************************************/
+
 /*public class PercolationStats {
    public PercolationStats(int N, int T);    // perform T independent computational experiments on an N-by-N grid
    public double mean();                  // sample mean of percolation threshold
@@ -7,10 +16,10 @@
    public static void main(String[] args);   // test client, described below
 }/*/
 import java.util.Random;
-//import java.lang.Throwable;//IllegalArguementException;
+
 public class PercolationStats{
     private double iterations[];
-  // private double threshold; 
+
     
     public static void main(String[] args){
         int N = Integer.parseInt(args[0]); 

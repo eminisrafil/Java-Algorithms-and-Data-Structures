@@ -1,6 +1,6 @@
 /************************************************************************
  *  Compilation:  javac Percolation.java
- *  //Execution:  java WeightedQuickUnionUF < input.txt
+ *  Execution:  java WeightedQuickUnionUF < input.txt
  *  Dependencies: StdIn.java StdOut.java WeightedQuickUnionUF
  *
  * 
