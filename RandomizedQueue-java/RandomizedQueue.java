@@ -22,43 +22,46 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public int size()        { return N;      }
     
     // resize the underlying array holding the elements
-    private void resize(int capacity) {
-        //do if else and auto resize
-        assert capacity >= N;
+    private void resizeCheck() {  
+        if(N == stack.length){
+            resize(N*2);
+        }
+        if (N > 0 && N == stack.length/4){
+            resize((stack.length/2));
+        }
+    }
+    
+    private void resize(int capacity) {  
+        StdOut.println("resizing array : " + capacity);
         Item[] temp = (Item[]) new Object[capacity];
         for (int i = 0; i < N; i++) {
             temp[i] = stack[i];
         }
-        stack = temp;
+        stack = temp;        
     }
     
     public Item dequeue() {
         if(isEmpty()){
             throw new NoSuchElementException("The Queue is empty you big dummy");
         }
-        //get random number
-        //save value at the spot
-        //place value equal to last 
-        //set last = 0
-        //decrement size 
-        //return saved value
+      
+        int rand =  (N>1)? StdRandom.uniform(0, N-1) : 0;
+        Item random = stack[rand];
+        stack[rand] = stack[N-1]; 
+        stack[N-1] = null;
+        N--;
+        resizeCheck();
+        test();
+        return random;
     }
 
-    // push a new item onto the stack
+    // enqueue a new item onto the stack
     public void enqueue(Item item) {
-        if (N == stack.length) resize(2*stack.length);    // double size of array if necessary
-        stack[N++] = item;                            // add item
-    }
-    
-        // delete and return the item most recently added
-    public Item pop() {
-        if (isEmpty()) throw new NoSuchElementException("Stack underflow");
-        Item item = stack[N-1];
-        stack[N-1] = null;                              // to avoid loitering
-        N--;
-        // shrink size of array if necessary
-        if (N > 0 && N == stack.length/4) resize(stack.length/2);
-        return item;
+        if(item == null)
+            throw new NullPointerException("You can't add a Null item to the Stack, you big dummy");
+        resizeCheck();   // double size of array if necessary
+        stack[N++] = item;   // add item
+        test();
     }
     
     public Item sample() {
@@ -71,45 +74,28 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
 
     // an iterator, doesn't implement remove() since it's optional
     private class RandomizedQueueIterator implements Iterator<Item> {
-        private int size;
+        private int i;
         private Item[] randomizedStack;
         
-
         public RandomizedQueueIterator() {
-            size = N;
+            i = N;
             randomizedStack = (Item[]) new Object[N];
-               
 
-            for(int x = 0; x < size; x++){
+            for(int x = 0; x < i; x++){
                 randomizedStack[x] = stack[x];
             }
             StdRandom.shuffle(randomizedStack); 
             
+            //test delete
+            StdOut.print("Randomized Stack Initialized with array:" );
             for(Item x : randomizedStack){
-                StdOut.println(x);
+                StdOut.print(x);
             }
-            
-            
+            StdOut.println("<~~Random Array Initialized");     
         }
-        /*//knuth shuffle directly into new array
-            //generates new random array and leaves the original untouched
-            //Linear time ~N
-            //opposed to copy array ~N then shuffle ~N = ~2N 
-            
-           for(int i = 0; i< size; i++){
-                int r = StdRandom.uniform(i+1);
-                swapInto(stack, randomizedStack, i, r);
-            }
-         * private Item[] swapInto(Item[] a, Item[] newA, int i, int r){
-            StdOut.println("swapping : " + a[i] + " and " + a[r] );
-            Item temp;
-            newA[i] = a[r];
-            newA[r] = a[i];
-            return newA;
-        }
-        */
+
         public boolean hasNext() {
-            return size > 0;
+            return i > 0;
         }
 
         public void remove() {
@@ -117,30 +103,51 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
 
         public Item next() {
-            if (!hasNext()) throw new NoSuchElementException();
-            Item first = randomizedStack[0];
-            
-            return first;
+            if (!hasNext() && i !=0) throw new NoSuchElementException();
+            i--;
+            return randomizedStack[i];
+
         }
     }
 
 
 
    /***********************************************************************
-    * Test routine.
+    * Test routine
     **********************************************************************/
+    
+     public void test() {
+       StdOut.println("Stack count: " +N);
+       for(Item x : stack){
+           StdOut.print(x);
+           StdOut.print(" | ");
+       }
+       StdOut.println(" ");
+       StdOut.println("----------------");          
+    }
+
+    
     public static void main(String[] args) {
         RandomizedQueue<String> s = new RandomizedQueue<String>();
         while (!StdIn.isEmpty()) {
             String item = StdIn.readString();
             if(item.equals("+")){
+                StdOut.println("Size of the Stack is : " + s.size());
                 Iterator iter1 = s.iterator();
-                //StdOut.println(s.sample());
+                Iterator iter2 = s.iterator();
+                for(int i = 0; i <s.size() ; i++) {
+                    StdOut.print(iter1.next());
+                    StdOut.print("  |");
+                    StdOut.print(iter2.next());
+                    StdOut.print("|  ");
+                }
             }
-            if (!item.equals("-") && !item.equals("+")) s.enqueue(item);
-            else if (!s.isEmpty() && !item.equals("+")) StdOut.print(s.pop() + " ");
+            if(item.equals("/")){
+                StdOut.println(s.dequeue());
+            }
+            if (!item.equals("-") && !item.equals("+") && !item.equals("/")) s.enqueue(item);
+            else if (!s.isEmpty() && !item.equals("+") && !item.equals("/")) StdOut.print(s.dequeue() + " ");
         }
         StdOut.println("(" + s.size() + " left on stack)");
     }
 }
-

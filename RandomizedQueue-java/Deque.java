@@ -47,8 +47,6 @@ public class Deque<Item> implements Iterable<Item> {
         if(first == null) {
             first = new Node();
             first.item = item;
-            first.next = null;
-            first.previous = null;
             last = first;
             N++;
             StdOut.println("Message: First was equal to NULL.");
@@ -63,13 +61,7 @@ public class Deque<Item> implements Iterable<Item> {
         first.previous = null;
         oldFirst.previous = first;
         N++;
-        
-        if(first.next == null){
-           last = first;
-           last.next = null;
-        }
-        test();
-        
+        test();  
     }
     
     public Item removeFirst(){
@@ -177,7 +169,7 @@ public class Deque<Item> implements Iterable<Item> {
         //               /    removeLast();     Remove Last Entry in Stack
         //               +    addLast();        Add "+" to Last Position of Stack
         //(any other char)    addFirst();       Add String to First Position of Stack
-        while (1>0) {
+        while (true) {
            String item = StdIn.readString();
            if (item.equals("/")){
                StdOut.println(s.removeLast());
