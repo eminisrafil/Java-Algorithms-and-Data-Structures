@@ -74,22 +74,22 @@ public class Point implements Comparable<Point> {
          * treat the slope of a degenerate line segment (between a point and itself) 
          * as negative infinity.
          */
-          //this x0,y0
-          //that x1,y1
         if(that == null)
                 throw new NullPointerException("Point equals null, you big dummy");
         
-        double xdiff = that.x - this.x;
-        double ydiff = that.y - this.y;
-        if(xdiff == 0){
-            //StdOut.print("Vertical line!!! ");
+        if(that.x == this.x){
+            if(that.y == this.y){
+            //StdOut.print("Vertical line");
+                return Double.NEGATIVE_INFINITY;
+            }
             return Double.POSITIVE_INFINITY;
         }
-        if(ydiff == 0){
-            //StdOut.print("Horizontal line!!! ");
-            return 0;
+        if(that.y == this.y){
+            //StdOut.print("Horizontal line");
+            double a = 1.0;
+            return (a-a)/+a;
         }
-        return new Double (ydiff/xdiff).doubleValue();
+        return new Double ((that.y - this.y)).doubleValue()/new Double (that.x - this.x).doubleValue();
     }
 
     // is this point lexicographically smaller than that one?
