@@ -1,3 +1,14 @@
+/*************************************************************************
+ * Name: Emin Israfil
+ * Email:EminIsrafil@gmail.com
+ *
+ * Description: Brute.java that examines 4 points at a time and 
+ * checks whether they all lie on the same line segment,
+ * printing out any such line segments to standard output
+ * and drawing them using standard drawing.
+ *
+ *************************************************************************/
+
 import java.util.Arrays;
 
 public class NewFast{
