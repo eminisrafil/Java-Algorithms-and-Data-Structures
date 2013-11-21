@@ -27,7 +27,7 @@ Java - Algorithms and Data Structures
   iterator) in constant amortized time and use space proportional to the number of items 
   currently in the queue.
 
-- **Pattern Recognition - Recognize linear patterns in a given set of points.**  
+- **Geometric Pattern Recognition - Recognize linear patterns in a given set of points.**  
   *Given a set of N distinct points in the plane, draw every (maximal) line segment 
   that connects a subset of 4 or more of the points.*
 
