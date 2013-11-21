@@ -1,14 +1,28 @@
+/*************************************************************************
+ * Name: Emin Israfil
+ * Email:EminIsrafil@gmail.com
+ *
+ * Description: Implement a randomized queue, similar to a stack or 
+ * queue, except that the item removed is chosen uniformly at random from 
+ * items in the data structure. Your implementation should support each
+ * randomized queue operation (besides creating an iterator) in constant
+ * amortized time and use space proportional to the number of items 
+ * currently in the queue.
+ *
+ *************************************************************************/
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.Random;
+
 public class RandomizedQueue<Item> implements Iterable<Item> {
-   //+public RandomizedQueue()           // construct an empty randomized queue
-   //+public boolean isEmpty()           // is the queue empty?
-   //+public int size()                  // return the number of items on the queue
-   //+public void enqueue(Item item)     // add the item
+   //public RandomizedQueue()           // construct an empty randomized queue
+   //public boolean isEmpty()           // is the queue empty?
+   //public int size()                  // return the number of items on the queue
+   //public void enqueue(Item item)     // add the item
    //public Item dequeue()              // delete and return a random item
    //public Item sample()               // return (but do not delete) a random item
-  // public Iterator<Item> iterator()   // return an independent iterator over items in random order
+   //public Iterator<Item> iterator()   // return an independent iterator over items in random order
     
     private int N;          // size of the stack
     private Item[] stack;  //stack
@@ -59,7 +73,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
     public void enqueue(Item item) {
         if(item == null)
             throw new NullPointerException("You can't add a Null item to the Stack, you big dummy");
-        resizeCheck();   // double size of array if necessary
+        resizeCheck();       // double size of array if necessary
         stack[N++] = item;   // add item
         test();
     }
@@ -68,7 +82,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         int rand = StdRandom.uniform(N-1);
         return stack[rand];
     }
-    
 
     public Iterator<Item> iterator()  { return new RandomizedQueueIterator();  }
 
@@ -110,8 +123,6 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
         }
     }
 
-
-
    /***********************************************************************
     * Test routine
     **********************************************************************/
@@ -125,8 +136,7 @@ public class RandomizedQueue<Item> implements Iterable<Item> {
        StdOut.println(" ");
        StdOut.println("----------------");          
     }
-
-    
+ 
     public static void main(String[] args) {
         RandomizedQueue<String> s = new RandomizedQueue<String>();
         while (!StdIn.isEmpty()) {

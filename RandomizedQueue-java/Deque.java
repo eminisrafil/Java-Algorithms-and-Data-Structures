@@ -1,18 +1,25 @@
+/*************************************************************************
+ * Name: Emin Israfil
+ * Email:EminIsrafil@gmail.com
+ *
+ * Description:  Dequeue: Implement a double-ended queue or deque, a stack
+ * and a queue that supports inserting and removing items from either the 
+ * front or the back of the data structure.
+ *
+ *************************************************************************/
+
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
    //public Deque()                     // construct an empty deque
-   //public boolean isEmpty();         // is the deque empty?
+   //public boolean isEmpty();          // is the deque empty?
    //public int size()                  // return the number of items on the deque
-   //    // insert the item at the front
-  // public void addLast(Item item)     // insert the item at the end
+   //public void addLast(Item item)     // insert the item at the end
    //public Item removeFirst()          // delete and return the item at the front
    //public Item removeLast()           // delete and return the item at the end
    //public Iterator<Item> iterator()   // return an iterator over items in order from front to end
-
-       ///iterator implementation should support the operations next() and hasNext()
-       ///Throw a java.lang.NullPointerException if the client attempts to add a null item; throw a java.util.NoSuchElementException if the client attempts to remove an item from an empty deque; throw a java.lang.UnsupportedOperationException if the client calls the remove() method in the iterator; throw a java.util.NoSuchElementException if the client calls the next() method in the iterator and there are no more items to return.
+   ///iterator implementation should support the operations next() and hasNext()
 
     private int N;          // size of the stack
     private Node first;     // Position 0 of stack
@@ -158,7 +165,6 @@ public class Deque<Item> implements Iterable<Item> {
          }
          StdOut.println(" <~~~~ Last");           
     }
-    
     
     public static void main(String[] args) {
         Deque<String> s = new Deque<String>();

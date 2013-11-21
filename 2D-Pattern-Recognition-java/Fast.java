@@ -2,16 +2,16 @@
  * Name: Emin Israfil
  * Email:EminIsrafil@gmail.com
  *
- * Description: Brute.java that examines 4 points at a time and 
- * checks whether they all lie on the same line segment,
- * printing out any such line segments to standard output
- * and drawing them using standard drawing.
+ * Description: Fast: Implement a scorting algorithm that accomplishes
+ * the same thing as Brute, but the order of growth of the running time 
+ * of your program should be N2 log N in the worst case and it should use
+ * space proportional to N.
  *
  *************************************************************************/
 
 import java.util.Arrays;
 
-public class NewFast{
+public class Fast{
     
     public void display(Point line[],Point origin){
         //copy lineOrigin-1 so that it can be replaced by origin
@@ -27,9 +27,8 @@ public class NewFast{
         line[0].drawTo(line[len-1]);
         StdDraw.show(0);
     }
-    
-    
-    public NewFast(Point pointsArray[], int N){
+        
+    public Fast(Point pointsArray[], int N){
       
       Arrays.sort(pointsArray);
       Point sortedPoints[] = pointsArray.clone();
@@ -74,9 +73,6 @@ public class NewFast{
       }
     }
     
-    
-    
-    
     public static void main(String[] args) {
         String filename = args[0]; 
         //rescale coordinates and turn on animation mode
@@ -95,6 +91,6 @@ public class NewFast{
             p.draw();
             stack[i] = p;
         }
-        NewFast fast = new NewFast(stack, N);
+        Fast fast = new Fast(stack, N);
     }
 }

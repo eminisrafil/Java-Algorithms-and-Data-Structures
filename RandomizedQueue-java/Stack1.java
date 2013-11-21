@@ -16,8 +16,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-
-/**
+/*
  *  The <tt>Stack</tt> class represents a last-in-first-out (LIFO) stack of generic items.
  *  It supports the usual <em>push</em> and <em>pop</em> operations, along with methods
  *  for peeking at the top item, testing if the stack is empty, and iterating through

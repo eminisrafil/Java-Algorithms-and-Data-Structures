@@ -1,8 +1,22 @@
+/*************************************************************************
+ * Name: Emin Israfil
+ * Email:EminIsrafil@gmail.com
+ *
+ * Description: The 8-puzzle problem is a puzzle played on a 3-by-3 
+ * grid with 8 square blocks labeled 1 through 8 anda blank square. The
+ * goal is to rearrange the blocks so that they are in order, using as
+ * few moves as possible.
+ *
+ * Use priority queues with the Hamming & Manhattan priority functions 
+ * to create a solver test client for your game.                                
+ *
+ *************************************************************************/
+
 import java.util.Arrays;
 import java.lang.System;
 public class Board {
     //public Board(int[][] blocks)            construct a board from an N-by-N array of blocks
-                                              //(where blocks[i][j] = block in row i, column j)
+    //                                        (where blocks[i][j] = block in row i, column j)
     //public int dimension()                  board dimension N
     //public int hamming()                    number of blocks out of place
     //public int manhattan()                  sum of Manhattan distances between blocks and goal
@@ -53,7 +67,6 @@ public class Board {
       return s.toString();
     }
     
-    
     public int manhattan(){
       int arrayPosition;
       int tile;
@@ -76,7 +89,6 @@ public class Board {
         return manhattan;
     }
 
-    
     public int hamming(){
       int arrayPosition;
       int tile;

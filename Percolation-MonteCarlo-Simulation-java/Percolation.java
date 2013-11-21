@@ -5,8 +5,8 @@
  *  Dependencies: StdIn.java StdOut.java WeightedQuickUnionUF
  *
  *  Emin Israfil
-
- 
+ *
+ *  Monte Carlo Simulation To Estimate Percolation Threshold
  *
  *  Percolation: Given a composite systems comprised of randomly distributed insulating 
  *  and metallic materials: what fraction of the materials need to be metallic so that the

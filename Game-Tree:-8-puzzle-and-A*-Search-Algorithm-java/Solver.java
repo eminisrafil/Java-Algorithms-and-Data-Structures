@@ -1,3 +1,14 @@
+/*************************************************************************
+ * Name: Emin Israfil
+ * Email:EminIsrafil@gmail.com
+ *
+ * Description: Solve the 8-puzzle using A* algorithm
+ *
+ * Use priority queues with the Hamming & Manhattan priority functions 
+ * to create a solver test client for your game.                                
+ *
+ *************************************************************************/
+
 public class Solver {
     //public Solver(Board initial)            // find a solution to the initial board (using the A* algorithm)
     //public boolean isSolvable()             // is the initial board solvable?
@@ -57,14 +68,12 @@ public class Solver {
                 if(!b.equals(currentNode.board))
                     pqTwin.insert(new Node(b, currentTwin, currentTwin.moves +1)); 
             }
-        
         }
         
         if(currentNode.board.isGoal())
             goalNode = currentNode;
         else
             goalNode = currentTwin;
-        
     }
     
     public Iterable<Board> solution(){
