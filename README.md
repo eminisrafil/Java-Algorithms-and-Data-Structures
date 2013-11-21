@@ -38,7 +38,7 @@ Java - Algorithms and Data Structures
   them using standard drawing.The order of growth of the running time of your program 
   should be N4 in the worst case and it should use space proportional to N.
 
-  Fast: Implement a scorting algorithm that accomplishes the same thing as Brute,
+  Fast: Implement a sorting algorithm that accomplishes the same thing as Brute,
   but the order of growth of the running time of your program should be N2 log N 
   in the worst case and it should use space proportional to N.
 
