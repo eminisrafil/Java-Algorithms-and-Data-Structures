@@ -38,7 +38,7 @@ public class Deque<Item> implements Iterable<Item> {
         first = null;
         last = null;
         debug = new Node();
-        debug.item = (Item) "fuck that, you empty stack";
+        debug.item = (Item) "Empty stack";
     }
     
     public int size(){
