@@ -48,3 +48,5 @@ Java - Algorithms and Data Structures
   they are in order, using as few moves as possible.*
 
   Use priority queues with the Hamming & Manhattan priority functions to create a solver test client for your game.
+  
+*Files with my name and email address on top, are the ones I authored. 
